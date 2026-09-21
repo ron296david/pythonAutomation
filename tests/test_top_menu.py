@@ -1,5 +1,5 @@
 from blocks.navigation import click_top_tab, click_video_tutorials, go_back_to_tab, open_home
-from repository.top_menu import (
+from entities.menu import (
     API_TESTING,
     CART,
     CONTACT_US,

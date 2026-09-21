@@ -3,8 +3,8 @@
 from blocks.login import login
 from blocks.navigation import click_top_tab, open_home
 from blocks.signup import delete_account
+from entities.menu import SIGNUP_LOGIN
 from entities.user import User
-from repository.top_menu import SIGNUP_LOGIN
 from web.web_actions import WebActions
 
 

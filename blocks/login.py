@@ -1,9 +1,9 @@
 """Building blocks for logging in and out through the UI."""
 
+from entities.menu import SIGNUP_LOGIN
 from entities.user import User
 from repository import login as l
 from repository import signup as s
-from repository.top_menu import SIGNUP_LOGIN
 from web.web_actions import WebActions
 
 from blocks.checks import expect_not_visible, expect_text, expect_url_path, fill_field

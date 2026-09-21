@@ -2,8 +2,8 @@
 
 from blocks.navigation import click_top_tab, open_home
 from blocks.signup import signup_with_existing_email, verify_new_user_signup_visible
+from entities.menu import SIGNUP_LOGIN
 from entities.user import User
-from repository.top_menu import SIGNUP_LOGIN
 from web.web_actions import WebActions
 
 

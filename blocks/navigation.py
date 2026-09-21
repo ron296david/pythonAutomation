@@ -2,8 +2,8 @@
 
 from urllib.parse import urlparse
 
-from entities.menu import TopMenuTab
-from repository.top_menu import ACTIVE_TAB_STYLE, HOME, VIDEO_TUTORIALS
+from entities.menu import HOME, VIDEO_TUTORIALS, TopMenuTab
+from repository.top_menu import ACTIVE_TAB_STYLE
 from web.web_actions import WebActions
 
 
