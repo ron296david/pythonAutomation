@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Iterator
 
 import pytest
@@ -31,3 +32,15 @@ def api(playwright: Playwright, base_url: str) -> Iterator[ApiActions]:
     request = playwright.request.new_context(base_url=base_url)
     yield ApiActions(request)
     request.dispose()
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_teardown(item: pytest.Item) -> Iterator[None]:
+    yield
+    # Playwright saves a failed test's video as video.webm once the test's browser closes.
+    # Tests run one at a time, so any video*.webm still there belongs to this test.
+    output = item.config.rootpath / item.config.getoption("--output")
+    videos = sorted(Path(output).glob("*/video*.webm"))
+    for index, video in enumerate(videos, start=1):
+        suffix = "" if len(videos) == 1 else f"-{index}"
+        video.rename(video.with_name(f"{item.originalname}{suffix}.webm"))
